@@ -1,0 +1,154 @@
+
+$nav: #f7f7f7;
+$color-icon: #03a9f4;
+$color-bg-icon-hover: #e6e6e6;
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 0;
+  height: 100%;
+  margin: 0;
+  #app {
+    height: 100%;
+  }
+}
+
+#gjs {
+  height: 100%;
+}
+
+// .gjs-comp-selected {
+//   outline: none !important;
+// }
+
+.panel__top {
+  padding: 0;
+  width: 100%;
+  background-color: $nav;
+  align-items: center;
+  display: flex;
+  position: initial;
+  justify-content: center;
+  height: 62px;
+  .gjs-pn-panel {
+    display: flex;
+  }
+  justify-content: space-between;
+  & > div {
+    background-color: transparent;
+  }
+}
+.panel__basic-actions {
+  position: initial;
+}
+
+.gjs-cv-canvas {
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-block-ui {
+  background: transparent;
+  color: #333;
+  font-weight: bold;
+  padding-right: 10px;
+  h1 {
+    font-size: 18px;
+  }
+}
+
+.gjs-pn-btn {
+  box-shadow: none;
+  background-color: transparent;
+  svg {
+    fill: $color-icon;
+    vertical-align: middle;
+  }
+  &.gjs-pn-active {
+    box-shadow: none;
+    background: $color-bg-icon-hover;
+  }
+}
+
+.gjs-block {
+  width: auto;
+  height: auto;
+  min-height: auto;
+}
+
+.editor-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+.editor-canvas {
+  flex-grow: 1;
+}
+
+.panel__right {
+  flex-basis: 230px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.panel__switcher {
+  position: initial;
+}
+
+.panel__devices {
+  position: initial;
+}
+
+.gjs-one-bg {
+  background-color: $nav;
+}
+
+.gjs-block {
+  border: 1px solid $color-icon;
+  box-shadow: none;
+  svg {
+    fill: $color-icon;
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.gjs-two-color {
+  color: #6d6d6d;
+}
+
+.gjs-field {
+  background-color: #e6e6e6;
+}
+
+.gjs-sm-sectors {
+  padding: 10px 5px;
+}
+
+.gjs-sm-sector .gjs-sm-title {
+  background-color: #e6e6e6;
+  font-size: 14px;
+}
+
+.gjs-sm-title {
+  border-bottom: transparent !important;
+  border-radius: 3px;
+  margin-bottom: 3px;
+}
+
+.gjs-layer-title {
+  border-bottom: 1px solid #acacac40;
+}
+
+.gjs-sm-field input {
+  color: #a7a7a7b3 !important;
+}
