@@ -262,24 +262,16 @@ require("./styles/styles.scss");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var editor = _grapesjs.default.init({
-  // Indicate where to init the editor. You can also pass an HTMLElement
   container: "#gjs",
-  // Get the content for the canvas directly from the element
-  // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
   fromElement: true,
-  // Size of the editor
   height: "100%",
   width: "auto",
-  // Disable the storage manager for the moment
   storageManager: false,
-  // Avoid any default panel
   blockManager: {
     appendTo: ".blocks-container",
     blocks: [{
       id: "section",
-      // id is mandatory
       label: _icons.section,
-      // You can use HTML/SVG inside labels
       attributes: {
         class: "gjs-block-section"
       },
@@ -291,15 +283,10 @@ var editor = _grapesjs.default.init({
     }, {
       id: "image",
       label: _icons.image,
-      // Select the component once it's dropped
       select: true,
-      // You can pass components as a JSON instead of a simple HTML string,
-      // in this case we also use a defined component type `image`
       content: {
         type: "image"
       },
-      // This triggers `active` event on dropped components and the `image`
-      // reacts by opening the AssetManager
       activate: true
     }]
   },
@@ -315,14 +302,12 @@ var editor = _grapesjs.default.init({
         active: true,
         label: _icons.block,
         command: "show-blocks",
-        // Once activated disable the possibility to turn it off
         togglable: false
       }, {
         id: "show-layers",
         active: true,
         label: _icons.layer,
         command: "show-layers",
-        // Once activated disable the possibility to turn it off
         togglable: false
       }, {
         id: "show-style",
@@ -349,7 +334,6 @@ var editor = _grapesjs.default.init({
     }, {
       id: "layers",
       el: ".panel__right",
-      // Make the panel resizable
       resizable: {
         maxDim: 350,
         minDim: 200,
@@ -361,8 +345,6 @@ var editor = _grapesjs.default.init({
         // Right handler
         bc: 0,
         // Bottom handler
-        // Being a flex child we need to change `flex-basis` property
-        // instead of the `width` (default)
         keyWidth: "flex-basis"
       }
     }]
@@ -373,14 +355,11 @@ var editor = _grapesjs.default.init({
   deviceManager: {
     devices: [{
       name: "Desktop",
-      width: "" // default size
-
+      width: ""
     }, {
       name: "Mobile",
       width: "320px",
-      // this value will be used on canvas width
-      widthMedia: "480px" // this value will be used in CSS @media
-
+      widthMedia: "480px"
     }]
   },
   styleManager: {
@@ -388,23 +367,14 @@ var editor = _grapesjs.default.init({
     sectors: [{
       name: "Dimension",
       open: false,
-      // Use built-in properties
       buildProps: ["width", "min-height", "padding"],
-      // Use `properties` to define/override single property
       properties: [{
-        // Type of the input,
-        // options: integer | radio | select | color | slider | file | composite | stack
         type: "integer",
         name: "The width",
-        // Label for the property
         property: "width",
-        // CSS property (if buildProps contains it will be extended)
         units: ["px", "%"],
-        // Units, available only for 'integer' types
         defaults: "auto",
-        // Default value
-        min: 0 // Min value, available only for 'integer' types
-
+        min: 0
       }]
     }, {
       name: "Extra",
@@ -416,7 +386,6 @@ var editor = _grapesjs.default.init({
         property: "font-size",
         type: "select",
         defaults: "32px",
-        // List of options, available only for 'select' and 'radio'  types
         options: [{
           value: "12px",
           name: "Tiny"
@@ -442,18 +411,15 @@ editor.Panels.addPanel({
   buttons: [{
     id: "visibility",
     active: false,
-    // active by default
     className: "btn-toggle-borders logo-block-ui",
     label: "<h1>Block UI</h1>",
-    command: "sw-visibility" // Built-in command
-
+    command: "sw-visibility"
   }, {
     id: "export",
     className: "btn-open-export",
     label: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 19h16v-7h2v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-8h2v7zm9-10v7h-2V9H6l6-6 6 6h-5z"/></svg>',
     command: "export-template",
-    context: "export-template" // For grouping context of buttons from the same panel
-
+    context: "export-template"
   }, {
     id: "show-json",
     className: "btn-show-json",
